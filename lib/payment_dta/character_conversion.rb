@@ -125,7 +125,7 @@ module DTA
       194152 => {:name => "CONTROL", :convert_to => ' '},
       194153 => {:name => "CONTROL", :convert_to => ' '},
       194154 => {:name => "CONTROL", :convert_to => ' '},
-      194155 => {:name => "CONTROL", :convert_to => ' '},  
+      194155 => {:name => "CONTROL", :convert_to => ' '},
       194156 => {:name => "CONTROL", :convert_to => ' '},
       194157 => {:name => "CONTROL", :convert_to => ' '},
       194158 => {:name => "CONTROL", :convert_to => ' '},
@@ -239,11 +239,11 @@ module DTA
       end
       new_string
     end
-    
+
     def encode_characters(string)
       Iconv.conv("ISO-8859-1", "UTF8",string)
     end
-    
+
     def dta_string(string)
       encode_characters(map_characters(string))
     end

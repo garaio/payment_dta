@@ -14,14 +14,14 @@ class Factory
     }.merge(attributes)
     ESRPayment.new(build_attributes(default_attributes))
   end
-    
+
   def self.create_domestic_chf_payment(attributes = {})
     default_attributes = {
       :requested_processing_date => Date.today.strftime('%y%m%d'),
     }.merge(attributes)
     DomesticCHFPayment.new(build_attributes(default_attributes))
   end
-  
+
   def self.create_financial_institution_payment(attributes = {})
     default_attributes = {
       :identification_bank_address => 'A',
@@ -38,14 +38,14 @@ class Factory
     }.merge(attributes)
     SpecialFinancialInstitutionPayment.new(build_attributes(default_attributes))
   end
-    
+
   def self.create_bank_cheque_payment(attributes = {})
     default_attributes = {
-      
+
     }.merge(attributes)
     BankChequePayment.new(build_attributes(default_attributes))
   end
-  
+
   def self.create_iban_payment(attributes = {})
     default_attributes = {
       :identification_bank_address => 'A',
@@ -55,7 +55,7 @@ class Factory
     }.merge(attributes)
     IBANPayment.new(build_attributes(default_attributes))
   end
-  
+
   def self.create_total_payment(attributes = {})
     default_attributes = {
       :data_file_sender_identification => 'ÄÜ2',
@@ -66,9 +66,9 @@ class Factory
   class << self
     alias :create_total_record :create_total_payment
   end
-  
+
   private
-  
+
   def self.build_attributes(attributes = {})
     {
       :data_file_sender_identification => 'ÄÜ2',

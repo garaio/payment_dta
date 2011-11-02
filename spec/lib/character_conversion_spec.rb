@@ -125,7 +125,7 @@ CONVERSION_MAP_UTF8 = {
   194152 => {:name => "CONTROL", :convert_to => ' '},
   194153 => {:name => "CONTROL", :convert_to => ' '},
   194154 => {:name => "CONTROL", :convert_to => ' '},
-  194155 => {:name => "CONTROL", :convert_to => ' '},  
+  194155 => {:name => "CONTROL", :convert_to => ' '},
   194156 => {:name => "CONTROL", :convert_to => ' '},
   194157 => {:name => "CONTROL", :convert_to => ' '},
   194158 => {:name => "CONTROL", :convert_to => ' '},
@@ -247,12 +247,12 @@ describe "dta character conversion and encoding" do
     Converter.should_receive(:map_characters).with("Äöü").and_return("AEoeue")
     Converter.dta_string("Äöü")
   end
-  
+
   it "should encode the strings" do
     Converter.should_receive(:encode_characters).with("AEoeue").and_return(Iconv.conv("ISO-8859-1", "UTF8","Äöü"))
     Converter.dta_string("Äöü")
   end
-  
+
   describe "character mapping/reduction" do
     CONVERSION_MAP_UTF8.each do |id,conversion|
       it "should map #{conversion[:name]} to '#{conversion[:convert_to]}'" do
@@ -263,15 +263,15 @@ describe "dta character conversion and encoding" do
 
     it "should map strings" do
       Converter.map_characters("ÄäÜüÖö").should == "AEaeUEueOEoe"
-    end  
+    end
   end
-    
+
   describe 'DTA character encoding' do
-    
+
     it "should have a default system encoding of utf8" do
       $KCODE.should == 'UTF8'
     end
-    
+
     it "should convert the encoding from UTF8 to ISO Latincode 8859-1" do
       encoded_string = Converter.encode_characters("Ä")
       encoded_string.size.should == 1
