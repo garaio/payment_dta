@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 require 'payment_dta/payments/esr_payment'
 require 'payment_dta/payments/total_record'
 class Factory
